@@ -1,0 +1,138 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #283663;
+    height: 5em;
+    color: #fff;
+    position: relative;
+}
+.topnav-title {
+    text-decoration: underline;
+    margin-left: .5em;
+}
+
+.nav {
+    position: absolute;
+    width: 60%;
+    top: 5.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: inherit;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+    display: none;
+    border-radius: .5em;
+}
+
+.nav-ul, .nav-submenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #d6d4d4;
+    font-weight: bold;
+    font-size: 1.6em;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+#nav-button {
+    margin-right: .5em;
+    cursor: pointer;
+    padding: 20px 5px;
+}
+
+.button-bar {
+    display: block;
+    position: relative;
+    width: 2em;
+    height: .3em;
+    background: #fff;
+}
+.button-bar::before {
+    display: block;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background: inherit;
+    content: "";
+    bottom: .8em;
+}
+.button-bar::after {
+    display: block;
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background: inherit;
+    content: "";
+    top: .8em;
+}
+
+.button-bar.show {
+    transform: rotate(60deg);
+}
+.button-bar.show::after {
+    transform: rotate(60deg);
+    top: 0;
+}
+.button-bar.show::before {
+    display: none;
+}
+
+.nav-submenu {
+    display: none;
+    padding: .5em 0 0 1em;
+}
+
+.submenu-icon {
+    font-size: .6em;
+    margin-left: .2em;
+}
+
+@media screen and (min-width: 1024px) {
+    #nav-button {
+        display: none;
+    }
+
+    .nav {
+        position: relative;;
+        width: auto;
+        left: 0;
+        top: 0;
+        right: 0;
+        transform: none;
+        margin-right: 2em;
+        display: flex;
+    }
+    
+    .nav-ul {
+        flex-direction: row;
+    }
+
+    .nav-submenu {
+        position: absolute;
+        top: 4em;
+        background: #283663;
+        padding: 1em;
+    }
+}
